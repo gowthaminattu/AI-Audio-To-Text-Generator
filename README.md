@@ -39,28 +39,24 @@
 
 ---
 
-AI-Audio-To-Text-Generator/
-│
-├── app.py                
-├── requirements.txt     
-├── Procfile             
-├── README.md             
-│
-├── templates/            
-│   ├── index.html       
-│   └── login.html       
-│
-├── static/               
-│   ├── style.css
-│   └── script.js         
-│
-├── uploads/             
-│
-├── venv/                         
-│
-├── test_files/ 
-│   ├── test_audio.wav
-│   └── test_script.py
+AI-Audio-To-Text-Generator
+|
+|-- app.py
+|-- requirements.txt
+|-- README.md
+|-- Procfile
+|
+|-- templates
+|    |-- index.html
+|    |-- login.html
+|
+|-- static
+|    |-- style.css
+|    |-- script.js
+|
+|-- uploads
+|-- venv
+
 ---
 
 

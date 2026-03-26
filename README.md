@@ -1,6 +1,6 @@
 #  AI Audio to Text Generator
 
-** A web-based application that **converts speech/audio into text using speech recognition and basic NLP processing.** Users can upload or record audio and get text output instantly.**
+ A web-based application that **converts speech/audio into text using speech recognition and basic NLP processing.** Users can upload or record audio and get text output instantly.
 
 ---
 
@@ -110,6 +110,6 @@ cd AI-Audio-To-Text-Generator
 
 ---
 
- This project is part of my learning journey in AI and Web Development.
- Suggestions and improvements are always welcome!
+- This project is part of my learning journey in AI and Web Development.
+- Suggestions and improvements are always welcome!
 

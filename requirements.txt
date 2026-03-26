@@ -1,0 +1,5 @@
+Flask==3.0.0
+SpeechRecognition
+fpdf==1.7.2
+standard-aifc
+audioop-lts

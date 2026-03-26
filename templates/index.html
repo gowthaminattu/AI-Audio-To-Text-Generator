@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Audio to Text Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-effects">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+    </div>
+    <div class="app-container">
+        <nav class="navbar glass-panel">
+            <h2 class="gradient-text">AI Audio to Text Generator</h2>
+            <a href="/" class="btn-outline">Logout</a>
+        </nav>
+
+        <main class="main-content glass-container">
+            <div class="controls-section">
+                <div class="input-group select-group">
+                    <label for="languageSelect">Recognition Language</label>
+                    <div class="custom-select">
+                        <select id="languageSelect">
+                            <option value="en-US">English</option>
+                            <option value="ta-IN">Tamil</option>
+                            <option value="hi-IN">Hindi</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button id="recordBtn" class="btn-primary" onclick="toggleRecording()">
+                        <span class="icon">🎙️</span> <span id="recordText">Record Audio</span>
+                    </button>
+                    
+                    <div class="file-upload-wrapper">
+                        <label for="fileUpload" class="btn-secondary">
+                            <span class="icon">📁</span> Choose Audio File
+                        </label>
+                        <input type="file" id="fileUpload" accept="audio/*" onchange="handleFileUpload(event)">
+                    </div>
+                </div>
+                
+                <div id="fileInfo" class="file-info hidden"></div>
+
+                <button id="convertBtn" class="btn-accent glow-effect" onclick="convertToText()" disabled>
+                    ✨ Convert to Text
+                </button>
+            </div>
+
+            <div class="loading-spinner hidden" id="loadingSpinner">
+                <div class="spinner"></div>
+                <p>AI is transcribing your audio... Please wait</p>
+            </div>
+            
+            <div class="error-msg hidden" id="errorMsg"></div>
+
+            <div class="result-section">
+                <label for="transcribedText">Transcribed Text:</label>
+                <textarea id="transcribedText" readonly placeholder="Your magically converted text will appear here..."></textarea>
+
+                <div class="export-buttons">
+                    <form action="/download/txt" method="POST" id="txtForm" class="export-form">
+                        <input type="hidden" name="text" id="txtInput">
+                        <button type="button" class="btn-download" onclick="downloadFile('txt')" id="downTxtBtn" disabled>Download TXT</button>
+                    </form>
+                    
+                    <form action="/download/pdf" method="POST" id="pdfForm" class="export-form">
+                        <input type="hidden" name="text" id="pdfInput">
+                        <button type="button" class="btn-download" onclick="downloadFile('pdf')" id="downPdfBtn" disabled>Download PDF</button>
+                    </form>
+
+                    <button class="btn-danger" onclick="clearAll()">Clear</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

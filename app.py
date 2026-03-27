@@ -175,6 +175,6 @@ def download_pdf():
     pdf.output(path)
     
     return send_file(path, as_attachment=True, download_name='transcription.pdf')
-
-if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+if __name__ == "__main__":
+    # Local testing only
+    app.run()
